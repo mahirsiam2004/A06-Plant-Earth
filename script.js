@@ -1,5 +1,7 @@
 const categoryContainer = document.getElementById("cat-container");
 const mainContainer = document.getElementById("main-container");
+const cartContainer=document.getElementById('cart-container');
+let cart=[];
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -41,7 +43,7 @@ showAllPlants = (plants) => {
       tree.name
     }" class="w-full h-full object-cover rounded-t-xl" />
         </figure>
-        <div class="card-body">
+        <div id="${tree.id}" class="card-body">
           <h2 class="card-title">${tree.name || "Unknown Tree"}</h2>
           <p>${tree.description}</p>
           <div class="card-actions justify-start">
@@ -107,8 +109,43 @@ const displayPlants = (plants) => {
 
 document.getElementById("all-plants").addEventListener("click", () => {
   callAllPlants();
-  console.log("fuck")
+
 });
+
+
+mainContainer.addEventListener('click',(e)=>{
+
+if(e.target.innerText==='Add to Cart'){
+handleCart(e);
+
+}
+})
+
+const handleCart=(e)=>{
+    const title=(e.target.parentNode.children[0].innerText);
+  const id=e.target.parentNode.id
+  cart.push({
+    title:title,
+    id:id
+  })
+  showCart(cart);
+}
+
+const showCart=(cart)=>{
+  cartContainer.innerHTML="";
+cart.forEach(c=>{
+cartContainer.innerHTML+=`
+                    <div class="bg-[#F0FDF4] flex justify-between items-center p-2">
+                        <div>
+                            <h2 class="font-semibold">${c.title}</h2>
+                            <h3 class="text-[#1F2937]">৳500 x 1</h3>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>`
+})
+}
 
 loadCategory();
 // callAllPlants();
