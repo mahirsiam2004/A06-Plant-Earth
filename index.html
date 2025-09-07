@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-[#EDFFF4]">
     <header>
         <nav class="bg-[#15803D] text-white">
             <div class="navbar  shadow-sm">
@@ -64,6 +64,30 @@
 
 
     </header>
+    <main class="max-w-[1860px] mx-auto mt-8 ">
+        <h1 class="text-center font-semibold text-3xl mb-4">Choose Your Trees</h1>
+
+        <section class="grid grid-cols-12 gap-4">
+            <aside id="" class="col-span-2 cursor-pointer space-y-4">
+                <h2 class="font-bold text-xl">Categories</h2>
+                <ul id="cat-container" class="no-style">
+                    <li class="bg-[#15803D] text-white rounded-sm px-[10px] py-[8px]">All Tress</li>
+                </ul>
+            </aside>
+
+            <div id="main-container" class="col-span-8 bg-[#FFFFFF] rounded-xl grid grid-cols-3 gap-6 ">
+
+            </div>
+
+            <aside class="col-span-2 bg-[#FFFFFF] rounded-xl">
+                <h2 class="font-bold text-xl">Your Cart</h2>
+            </aside>
+        </section>
+    </main>
+
+
+    <!-- js file -->
+    <script src="./script.js"></script>
 </body>
 
 </html>
