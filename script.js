@@ -47,7 +47,7 @@ showAllPlants = (plants) => {
           <div class="card-actions justify-start">
             <div class="badge badge-outline">${tree.category}</div>
           </div>
-          <button class="btn bg-[#15803D] text-white rounded-full">Add to Cart</button>
+          <button class="btn btn-cart bg-[#15803D] text-white rounded-full">Add to Cart</button>
         </div>
       </div>`;
   });
@@ -99,7 +99,7 @@ const displayPlants = (plants) => {
           <div class="card-actions justify-start">
             <div class="badge badge-outline">${tree.category}</div>
           </div>
-          <button class="btn bg-[#15803D] text-white rounded-full">Add to Cart</button>
+          <button class="btn btn-cart bg-[#15803D] text-white rounded-full">Add to Cart</button>
         </div>
       </div>`;
   });
@@ -111,4 +111,4 @@ document.getElementById("all-plants").addEventListener("click", () => {
 });
 
 loadCategory();
-callAllPlants();
+// callAllPlants();
