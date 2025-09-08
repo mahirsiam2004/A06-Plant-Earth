@@ -4,15 +4,18 @@ const cartContainer = document.getElementById("cart-container");
 const totalPriceEl = document.getElementById("total-price");
 let cart = [];
 
-
+// Loader 
 const setLoader = () => {
-  mainContainer.innerHTML = `<span class="loading loading-dots loading-xl text-[#15803D] mx-auto"></span>`;
+  mainContainer.innerHTML = `
+    <div class="w-full h-[300px] flex items-center justify-center col-span-3">
+      <span class="loading loading-dots loading-xl text-[#15803D]"></span>
+    </div>`;
 };
 
 
 const formatMoney = (num) => new Intl.NumberFormat().format(num);
 
-
+// Load Categories
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -27,7 +30,7 @@ const loadCategory = () => {
     });
 };
 
-
+// Load All Plants
 const callAllPlants = () => {
   setLoader();
   fetch("https://openapi.programming-hero.com/api/plants")
@@ -37,21 +40,17 @@ const callAllPlants = () => {
     });
 };
 
-
+// Show Plants
 const showAllPlants = (plants) => {
   mainContainer.innerHTML = "";
   plants.forEach((tree) => {
     mainContainer.innerHTML += `
       <div class="card bg-base-100 shadow-sm">
         <figure class="h-48 w-full">
-          <img src="${tree.image}" alt="${
-      tree.name
-    }" class="w-full h-full object-cover rounded-t-xl" />
+          <img src="${tree.image}" alt="${tree.name}" class="w-full h-full object-cover rounded-t-xl" />
         </figure>
         <div id="${tree.id}" class="card-body">
-          <h2 onclick='my_modal_5.showModal()' class="card-title cursor-pointer text-[#15803D]">${
-            tree.name
-          }</h2>
+          <h2 class="card-title cursor-pointer text-[#15803D]">${tree.name}</h2>
           <p class="line-clamp-2">${tree.description}</p>
           <div class="flex items-center justify-between mt-1">
             <div class="badge badge-outline">${tree.category}</div>
@@ -63,7 +62,7 @@ const showAllPlants = (plants) => {
   });
 };
 
-
+// Category filter
 categoryContainer.addEventListener("click", (e) => {
   if (e.target.tagName !== "LI") return;
 
@@ -79,7 +78,7 @@ categoryContainer.addEventListener("click", (e) => {
   }
 });
 
-
+// Load Plants By Category
 const loadPlantsByCategory = (categoryName) => {
   setLoader();
   fetch("https://openapi.programming-hero.com/api/plants")
@@ -90,52 +89,53 @@ const loadPlantsByCategory = (categoryName) => {
     });
 };
 
+// Modal Elements
 const treeModal = document.getElementById("my_modal_5");
 const modalTitle = treeModal.querySelector("h3");
-const modalImage = treeModal.querySelector("img");
 const modalDescription = treeModal.querySelector("p");
+const modalCategory = document.getElementById("modal-category");
+const modalPrice = document.getElementById("modal-price");
+let modalImage = treeModal.querySelector("img");
 
-
+// Main container 
 mainContainer.addEventListener("click", (e) => {
-  // Add to cart
+
   if (e.target.classList.contains("btn-cart")) {
     handleCart(e.target.closest(".card-body"));
   }
 
-
+  // Open modal
   if (e.target.classList.contains("card-title")) {
     const card = e.target.closest(".card-body");
     const treeName = card.querySelector(".card-title").innerText;
     const treeImage = card.parentElement.querySelector("img").src;
     const treeDesc = card.querySelector("p").innerText;
+    const treeCategory = card.querySelector(".badge").innerText;
+    const treePrice = card.querySelector(".font-semibold").innerText;
 
-  
     modalTitle.innerText = treeName;
- 
-    if (!modalImage) {
-      const imgEl = document.createElement("img");
-      imgEl.src = treeImage;
-      imgEl.className = "w-full h-48 object-cover my-2 rounded-lg";
-      treeModal.querySelector(".modal-box").insertBefore(imgEl, modalDescription);
-    } else {
-      modalImage.src = treeImage;
-    }
-    modalDescription.innerText = treeDesc;
 
-    treeModal.showModal(); 
+    if (!modalImage) {
+      modalImage = document.createElement("img");
+      modalImage.className = "w-full h-48 object-cover my-2 rounded-lg";
+      treeModal.querySelector(".modal-box").insertBefore(modalImage, modalDescription);
+    }
+    modalImage.src = treeImage;
+
+    modalDescription.innerText = treeDesc;
+    modalCategory.innerText = "Category: " + treeCategory;
+    modalPrice.innerText = "Price: " + treePrice;
+
+    treeModal.showModal();
   }
 });
 
-
-
+// Cart Functions
 const handleCart = (card) => {
   const title = card.querySelector(".card-title").innerText;
   const id = card.id;
   const price = parseInt(
-    card
-      .querySelector(".font-semibold")
-      .innerText.replace("৳", "")
-      .replace(/,/g, "")
+    card.querySelector(".font-semibold").innerText.replace("৳", "").replace(/,/g, "")
   );
 
   const existing = cart.find((item) => item.id === id);
@@ -147,7 +147,6 @@ const handleCart = (card) => {
 
   showCart();
 };
-
 
 const showCart = () => {
   cartContainer.innerHTML = "";
@@ -173,6 +172,8 @@ const removeFromCart = (id) => {
   showCart();
 };
 
-
+// Init
 loadCategory();
 callAllPlants();
+
+

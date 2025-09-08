@@ -43,7 +43,8 @@
         <p class="text-[#1F2937] text-sm sm:text-base md:text-lg">
           Join our mission to plant 1 million trees and make the Earth greener for future generations.
         </p>
-        <a class="btn bg-[#FACC15] border-none shadow-none rounded-full text-xs sm:text-sm md:text-base px-6 sm:px-8 py-2">
+        <a
+          class="btn bg-[#FACC15] border-none shadow-none rounded-full text-xs sm:text-sm md:text-base px-6 sm:px-8 py-2">
           Plant a Tree
         </a>
       </div>
@@ -63,16 +64,19 @@
       <aside class="col-span-12 md:col-span-2 cursor-pointer space-y-4">
         <h2 class="font-bold text-xl">Categories</h2>
         <ul id="cat-container" class="no-style">
-          <li id="all-plants"
-            class="bg-[#15803D] text-white rounded-sm px-[10px] py-[8px] cursor-pointer">All Trees</li>
+          <li id="all-plants" class="bg-[#15803D] text-white rounded-sm px-[10px] py-[8px] cursor-pointer">All Trees
+          </li>
         </ul>
       </aside>
 
       <!-- Plant Cards -->
       <div id="main-container"
-        class="col-span-12 md:col-span-8 bg-[#FFFFFF] rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 min-h-[300px] flex items-center justify-center">
-       <!-- loading animation -->
-        <span class="loading loading-dots loading-xl text-[#15803D] mx-auto "></span>
+        class="col-span-12 md:col-span-8 bg-[#FFFFFF] rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 min-h-[300px] ">
+        <!-- loading animation -->
+        <div class="w-full  mx-auto flex items-center justify-center min-h-[300px] col-span-3">
+          <span class="loading loading-dots loading-xl text-[#15803D]"></span>
+        </div>
+
       </div>
 
       <!-- Cart -->
@@ -151,20 +155,23 @@
 
 
 
-<!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Hello!</h3>
-    <p class="py-4">Press ESC key or click the button below to close</p>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
+  <!-- Open the modal using ID.showModal() method -->
+  <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+  <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <h3 class="text-lg font-bold">Hello!</h3>
+      <!-- Image will be inserted dynamically -->
+      <p class="py-2"></p>
+      <p id="modal-category" class="text-sm font-semibold text-[#15803D]"></p>
+      <p id="modal-price" class="text-sm text-[#1F2937]"></p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Close</button>
+        </form>
+      </div>
     </div>
-  </div>
-</dialog>
+  </dialog>
+
 
 
 
