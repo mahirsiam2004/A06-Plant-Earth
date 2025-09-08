@@ -1,0 +1,12 @@
+gsap.from('.pata1',{
+    x:-100,
+    y:-80,
+    rotate:-50,
+    duration:2
+})
+gsap.from('.pata2',{
+    x:100,
+    y:-80,
+    rotate:50,
+    duration:2
+})

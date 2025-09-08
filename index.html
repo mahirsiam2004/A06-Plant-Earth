@@ -35,7 +35,7 @@
     <!-- Banner -->
     <div class="banner relative bg-[#CFF0DC] h-[385px] flex justify-center items-center px-4">
       <div class="absolute bottom-0 left-0 w-24 sm:w-32 md:w-[550px]">
-        <img src="./assets/hero-leaf1.png" alt="">
+        <img class="pata1" src="./assets/hero-leaf1.png" alt="">
       </div>
 
       <div class="text-center space-y-2 max-w-[627px]">
@@ -50,7 +50,7 @@
       </div>
 
       <div class="absolute bottom-0 right-0 w-24 sm:w-32 md:w-[550px]">
-        <img src="./assets/hero-leaf2.png" alt="">
+        <img class="pata2" src="./assets/hero-leaf2.png" alt="">
       </div>
     </div>
   </header>
@@ -110,21 +110,21 @@
   </section>
 
   <!-- Impact -->
-  <section class="bg-[#CFF0DC] w-full mt-10 py-14">
+  <section class="bg-[#CFF0DC] w-full mt-10 py-14 overflow-hidden">
     <h1 class="text-center font-bold text-4xl mb-6">Our Impact</h1>
-    <div class="stats w-full max-w-[1660px] mx-auto flex flex-col lg:flex-row gap-6 justify-center">
+    <div class="stats w-full max-w-[1660px] mx-auto flex flex-col lg:flex-row gap-6 justify-center overflow-hidden">
       <div
-        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition">
+        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition hover:bg-[#DCFCE7]">
         <div class="stat-value text-[#15803D]">500K+</div>
         <div class="stat-desc">Trees Planted</div>
       </div>
       <div
-        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition">
+        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition hover:bg-[#DCFCE7]">
         <div class="stat-value text-[#15803D]">120K+</div>
         <div class="stat-desc">Communities Involved</div>
       </div>
       <div
-        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition">
+        class="stat bg-white rounded-xl w-full lg:w-[500px] h-[150px] flex flex-col justify-center items-center hover:scale-105 transition hover:bg-[#DCFCE7]">
         <div class="stat-value text-[#15803D]">30K+</div>
         <div class="stat-desc">Countries Reached</div>
       </div>
@@ -176,8 +176,10 @@
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="./script.js"></script>
+  <script src="./gsap.js"></script>
 </body>
 
 </html>

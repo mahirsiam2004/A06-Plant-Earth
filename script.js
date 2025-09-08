@@ -160,7 +160,7 @@ const showCart = () => {
           <h3 class="text-[#1F2937]">৳${formatMoney(c.price)} x ${c.qty}</h3>
         </div>
         <button class="text-red-500" onclick="removeFromCart('${c.id}')">
-          <i class="fa-solid fa-xmark"></i>
+          <i class="fa-solid fa-xmark cursor-pointer"></i>
         </button>
       </div>`;
   });
